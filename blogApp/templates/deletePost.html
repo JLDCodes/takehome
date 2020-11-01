@@ -1,0 +1,22 @@
+{% if user.is_authenticated %}
+<a href="{% url 'logout' %}"><small>{{ ' logout' }}</small></a>
+<a href="{% url 'add_post' %}"><small>{{ ' add post' }}</small></a>
+{% else %}
+<a href="{% url 'register' %}"><small>{{ 'register account' }}</small></a>
+<a href="{% url 'login' %}"><small>{{ ' login' }}</small></a>
+{% endif %}
+
+{% if user.is_authenticated %}
+<h1>Delete Blog Post</h1>
+<h3>Delete: {{ post.title }}</h3>
+<div class="form-group"></div>
+<form method="POST">
+    {% csrf_token %}
+    <strong>Are you sure?</strong>
+    {{ value|linebreaks }}
+    <button class="btn btn-secondary">Delete Post</button>
+</form>
+{% else %}
+Login To Delete
+{% endif %}
+

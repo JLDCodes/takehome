@@ -1,0 +1,55 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+<a href="{% url 'home' %}"><small>Home</small></a>
+{% if user.is_authenticated %}
+<a href="{% url 'logout' %}"><small>{{ ' logout' }}</small></a>
+<a href="{% url 'add_post' %}"><small>{{ ' add post' }}</small></a>
+{% else %}
+<a href="{% url 'register' %}"><small>{{ 'register account' }}</small></a>
+<a href="{% url 'login' %}"><small>{{ ' login' }}</small></a>
+{% endif %}
+{% block content %}
+
+<div class="form-group"></div>
+<form method="POST">
+    {% csrf_token %}
+         <div class="container mx-auto p-2">
+      <div class="max-w-sm mx-auto my-24 bg-white px-5 py-10 rounded shadow-xl">
+        <div class="text-center mb-8">
+          <h1 class="font-bold text-2xl font-bold">Edit a Post</h1>
+        </div>
+
+          <div class="mt-5">
+            <label>Title</label>
+            <input
+              class="block w-full p-2 border rounded border-gray-500"
+             {{ form.title }}
+
+          </div>
+                   <div class="mt-5">
+            <label>Category</label>
+            <input
+              class="block w-full p-2 border rounded border-gray-500"
+             {{ form.category }}
+
+          </div>
+            <div class="mt-5">
+            <label>Body</label>
+      <label>Body</label>
+             <textarea class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4" {{ form.body}}</textarea>
+            </div>
+            <div class="mt-5">
+             <div class="mt-10">
+<button class="py-3 bg-green-500 hover:bg-green-600 rounded text-white text-center w-full">Edit</button>
+          </div>
+</form>
+{% endblock %}
+
+
+</html>
