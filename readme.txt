@@ -11,7 +11,7 @@ I have completed:
 	Posts persist using a database to store them
 
 The following models are present in my application
-	Post model(that hjas title, description, forein key to author, created date
+	Post model(that has title, description, foreign key to the author, created date
 	Author model(name, bio)
 
 Bonus items:
