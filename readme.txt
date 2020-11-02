@@ -1,8 +1,5 @@
 Take-home test SmallCloud Technologies
 
-Django and Tailwind are an incredible combo! 
-Thank you for introducing them to me.
-It was a pleasure to work with.
 
 I have completed:
 	a list view of post(homepage)
